@@ -53,10 +53,10 @@ jobs:
         run: poetry run isort . --check
 
       - name: flake8
-        run: poetry run flake8 tree_inventory tests --count --max-line-length=120 --extend-ignore=E203,E266,E501,W503,F403,E722,F541 --statistics
+        run: poetry run flake8 wipe_free_space tests --count --max-line-length=120 --extend-ignore=E203,E266,E501,W503,F403,E722,F541 --statistics
 
       - name: MyPy
-        run: poetry run mypy tree_inventory/__main__.py
+        run: poetry run mypy wipe_free_space/__main__.py
 
   unit_tests_linux:
     name: Ubuntu, Build & Unit Testing
@@ -97,7 +97,7 @@ jobs:
         run: poetry install --no-interaction --with test
 
       - name: Test with pytest
-        run: poetry run pytest --junitxml=pytest.xml --cov-report=term-missing:skip-covered --cov=tree_inventory | tee pytest-coverage.txt
+        run: poetry run pytest --junitxml=pytest.xml --cov-report=term-missing:skip-covered --cov=wipe_free_space | tee pytest-coverage.txt
 
       - name: Pytest coverage comment
         uses: MishaKav/pytest-coverage-comment@main
@@ -140,7 +140,7 @@ jobs:
         run: poetry install --no-interaction --with test
 
       - name: Test with pytest
-        run: poetry run pytest --junitxml=pytest.xml --cov-report=term-missing:skip-covered --cov=tree_inventory | tee pytest-coverage.txt
+        run: poetry run pytest --junitxml=pytest.xml --cov-report=term-missing:skip-covered --cov=wipe_free_space | tee pytest-coverage.txt
 
       - name: Pytest coverage comment
         uses: MishaKav/pytest-coverage-comment@main
